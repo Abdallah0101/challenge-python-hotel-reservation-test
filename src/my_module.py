@@ -30,26 +30,26 @@ def get_client_type(info):
 
 def get_day_type(info):                                                   
     values = info.split(",")
-    output = []
+    day_type_list = []
     for value in values:
         day_type = (value[value.find("(")+1:value.find(")")])
     
         holiday = ["sun", "sat"]                 #add whatever you want of days names                       
         if day_type not in holiday:
             day_type = ("weekday")
-            output.append(day_type)
+            day_type_list.append(day_type)
             
         else:
             day_type = ("weekend")
-            output.append(day_type)
+            day_type_list.append(day_type)
 
-    return output
+    return day_type_list
 
 
-def solving_the_problem (client_type, day_type):           
+def solving_the_problem (client_type, day_type_list):           
     list_of_lists = []
 
-    for day in day_type:
+    for day in day_type_list:
 
         if day == "weekend" and client_type == "Regular":                         
             list1=[]
